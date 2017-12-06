@@ -66,14 +66,34 @@ class MainActivity : AppCompatActivity() {
         val charInt = character.toInt()
         val key = 3
         if (character.isUpperCase()) {
-            //
+
             val alphaVal = charInt - 65
-            val newAlphaVal = (alphaVal - key) % 26
+            val newAlphaVal: Int
+            if (alphaVal == 0) {
+                newAlphaVal = 23
+            } else if (alphaVal == 1) {
+                newAlphaVal = 24
+            } else if (alphaVal == 2) {
+                newAlphaVal = 25
+            } else {
+                newAlphaVal = (alphaVal - key) % 26
+            }
+
             val newAscii = newAlphaVal + 65
+
             return newAscii.toChar()
         } else if (character.isLowerCase()) {
             val alphaVal = charInt - 97
-            val newAlphaVal = (alphaVal - key) % 26
+            val newAlphaVal: Int
+            if (alphaVal == 0) {
+                newAlphaVal = 23
+            } else if (alphaVal == 1) {
+                newAlphaVal = 24
+            } else if (alphaVal == 2) {
+                newAlphaVal = 25
+            } else {
+                newAlphaVal = (alphaVal - key) % 26
+            }
             val newAscii = newAlphaVal + 97
             return newAscii.toChar()
         } else {
